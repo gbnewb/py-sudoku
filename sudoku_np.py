@@ -82,9 +82,9 @@ def attempt(board, algorithm='BackTracking'):
             board[y, x] += 1
             trash[unfilled[i]].add(board[y, x])
             if point_validator(board, (y, x)):
-                if i == len(unfilled) - 1:
-                    return board, back_tracking_count
                 i += 1
+                if i == len(unfilled):
+                    return board, back_tracking_count
                 y, x = unfilled[i]
             else:
                 while board[y, x] == 9:
